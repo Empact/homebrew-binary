@@ -1,14 +1,14 @@
 class PerforceServer < Formula
   desc "Server for the Perforce revision control system"
   homepage "http://www.perforce.com/"
-  version "2015.1.1362963"
+  version "2016.1.1374211"
 
   if MacOS.prefer_64_bit?
-    url "http://filehost.perforce.com/perforce/r15.1/bin.darwin90x86_64/p4d"
-    sha256 "b7fa407b1da501b65f8cac9058099712a9e578e9b94773a3f6078234ad210d5f"
+    url "http://filehost.perforce.com/perforce/r16.1/bin.darwin90x86_64/p4d"
+    sha256 "4497db298796239ca2f1991bcb5103b36889a769dbf997e9fa9a1782ca34ff36"
   else
-    url "http://filehost.perforce.com/perforce/r15.1/bin.darwin90x86/p4d"
-    sha256 "c15aa41ee5e77207ec9a2b3e027e346e27d60523b3c65cb6f74a5c1240898f21"
+    url "http://filehost.perforce.com/perforce/r16.1/bin.darwin90x86/p4d"
+    sha256 "9891c0e73646b399d6bfc74c8cf6ed6e1180062392c708609683f2162f0ddfed"
   end
 
   bottle :unneeded
@@ -17,6 +17,8 @@ class PerforceServer < Formula
     bin.install "p4d"
     (var+"p4root").mkpath
   end
+
+  plist_options :startup => true
 
   def plist; <<-EOS.undent
     <?xml version="1.0" encoding="UTF-8"?>
